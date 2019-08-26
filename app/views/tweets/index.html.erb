@@ -1,27 +1,56 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Tweets</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.content %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tweet', new_tweet_path %>
+<div class="alert alert-success" role="alert" style="text-align:center;">
+  <%= notice %>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <%= image_tag("logo1.png")%><br>
+        <i class="fas fa-cog" style="font-size:30px;color:#00acee;"></i>&nbsp;Home<br>
+        <i class="fab fa-slack-hash" style="font-size:30px;color:#00acee;"></i>&nbsp;Explorel<br>
+        <i class="fas fa-bell" style="font-size:30px;color:#00acee;"></i>&nbsp;Notification<br>
+        <i class="far fa-envelope" style="font-size:30px;color:#00acee;"></i>&nbsp;Messages<br>
+        <i class="far fa-bookmark" style="font-size:30px;color:#00acee;"></i>&nbsp;Bookmarks<br>
+        <i class="fas fa-list" style="font-size:30px;color:#00acee;"></i>&nbsp;list<br>
+        <i class="fas fa-user" style="font-size:30px;color:#00acee;"></i>&nbsp;profile<br>
+        <i class="fab fa-algolia" style="font-size:30px;color:#00acee;"></i>&nbsp;More<br><br>
+        <%= link_to 'New Tweet', new_tweet_path, class:"btn btn-primary", class:"link"%>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Home</h5>
+        <% @tweets.each do |tweet| %>
+          <%= tweet.content %><br>
+          <%= link_to 'Show', tweet,class:"btn btn-primary" %>
+          <%= link_to 'Edit', edit_tweet_path(tweet),class:"btn btn-success" %>
+          <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %><br>
+        <% end %><br>
+        <div class="image">
+          <%= image_tag("next3.jpg")%><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <input type="search" class="search" size="30" placeholder="Search Twitter"><br><br>
+        <div class="trendes">
+          <h5>Trendes For You</h5>
+          <p>Trending New</p>
+          <h5>Trendes For You</h5>
+          <p>Trending New</p>
+          <h5>Trendes For You</h5>
+          <p>Trending New</p>
+          <h5>Trendes For You</h5>
+          <p>Trending New</p>
+          <h5>Trendes For You</h5>
+          <p>Trending New</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
